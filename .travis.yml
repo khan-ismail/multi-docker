@@ -1,0 +1,16 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t imismailkhan/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true imismailkhan/react-test npm run test -- --coverage
+
+after_success:
+  - docker build -t imismailkhan/multi-client ./client
+  - docker build -t imismailkhan/multi-nginx ./nginx
+  - docker build -t imismailkhan/multi-server ./server
+  - docker build -t imismailkhan/multi-worker ./worker
