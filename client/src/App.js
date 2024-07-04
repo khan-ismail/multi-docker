@@ -18,7 +18,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React
+            Learning from AWS deployment 21:10 PM
           </a>
           <Link to="/">Home</Link>
           <Link to="/otherpage">Other Page</Link>
